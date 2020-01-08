@@ -1,0 +1,24 @@
+<div class="search-box">
+    <input type="text" [(ngModel)]="searchText" (keyup)='bindSearch($event)'>
+
+</div>
+
+<div class="list-con">
+    <div>列表</div>
+    <div>代办</div>
+    <div *ngFor="let item of historyInfo;let key = index" [hidden]='item.check'>
+        <button class='delete' (click)="delete(key)">X</button> <span>{{item.text}}</span>
+        <input type="checkbox" [value]="item.check" (click)='readed(key)'>
+    </div>
+    <div>已完成</div>
+    <div *ngFor="let item of historyInfo;let key = index" [hidden]='!item.check'>
+        <button class='delete' (click)="delete(key)">X</button> <span>{{item.text}}</span>
+
+    </div>
+</div>
+
+<div>
+
+    {{str}}
+
+</div>
